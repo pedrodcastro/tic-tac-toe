@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
 import Square from "./Square";
 
-function Board({ xIsNext, squares, onPlay }) {
+export default function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
       return;
@@ -65,25 +64,4 @@ function calculateWinner(squares) {
     }
   }
   return null;
-}
-
-export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const currentSquares = history[history.length - 1];
-
-  function handlePlay(nextSquare) {
-    setHistory([...history, nextSquare]);
-    setXIsNext(!xIsNext);
-    console.log(history);
-  }
-
-  return (
-    <div>
-      <div>
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
-      <div></div>
-    </div>
-  );
 }
