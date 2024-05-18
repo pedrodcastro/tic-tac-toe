@@ -28,18 +28,20 @@ export default function Game() {
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button className="p-1 font-mono" onClick={() => jumpTo(move)}>
+          {description}
+        </button>
       </li>
     );
   });
 
   return (
-    <div>
+    <div className="flex flex-col items-center h-screen gap-2 p-10 bg-slate-100">
       <div>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div>
-        <ol>{moves}</ol>
+        <ol className="flex flex-col items-center">{moves}</ol>
       </div>
     </div>
   );

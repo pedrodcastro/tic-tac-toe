@@ -25,24 +25,20 @@ export default function Board({ xIsNext, squares, onPlay }) {
   }
 
   return (
-    <>
-      <div>{status}</div>
-      <div>
+    <div className="flex flex-col items-center gap-2">
+      <div className="font-mono text-lg font-bold">{status}</div>
+      <div className="grid grid-cols-3 gap-1 border-2 border-gray-300 rounded-md p-9">
         <Square value={squares[0]} onSquareclick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareclick={() => handleClick(1)} />
         <Square value={squares[2]} onSquareclick={() => handleClick(2)} />
-      </div>
-      <div>
         <Square value={squares[3]} onSquareclick={() => handleClick(3)} />
         <Square value={squares[4]} onSquareclick={() => handleClick(4)} />
         <Square value={squares[5]} onSquareclick={() => handleClick(5)} />
-      </div>
-      <div>
         <Square value={squares[6]} onSquareclick={() => handleClick(6)} />
         <Square value={squares[7]} onSquareclick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareclick={() => handleClick(8)} />
       </div>
-    </>
+    </div>
   );
 }
 
